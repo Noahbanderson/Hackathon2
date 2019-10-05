@@ -10,9 +10,9 @@ class Api::CommentsController < ApplicationController
   def create
     comment = current_user.comments.new(comment_params)
     if comment.save
-      render json:comment
+      render json: comment
     else
-      render json: comment.errors, status 422
+      render json: {error: comment.error}, status: :unprocessable_entity
     end
   end
 
@@ -27,14 +27,24 @@ class Api::CommentsController < ApplicationController
     render json: @comment
   end
 
+  def find_user
+    render json: Comment.find_by_sql(["
+    SELECT body, name
+    FROM comments
+    LEFT JOIN users
+      ON user_id = users.id
+    "])
+    
+  end
+
 private
 
   def set_comment
     @comment = current_user.videos.comments.find(params[:id])
   end
 
-  def video_params
-    params.require(:comment).permit(:body,)
+  def comment_params
+    params.require(:comment).permit(:body, :video_id)
   end
 
 end

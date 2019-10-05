@@ -15,16 +15,17 @@ const App = () => (
   <>
     <Navbar />
     <FetchUser>
-      <Container>
-        <Switch>
+      <Switch>
+        <Route exact path="/view/:id" component={View} />
+        <Container>
           <Route exact path="/" component={Home} />
           <Route exact path="/view/:id" component={View} />
           <ProtectedRoute exact path="/user" component={User}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
-        </Switch>
-      </Container>
+        </Container>
+      </Switch>
     </FetchUser>
   </>
 )
