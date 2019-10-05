@@ -23,7 +23,7 @@ class Api::VideosController < ApplicationController
     if video.save
       render json: video
     else
-      render json: video.errors, status: 422
+      render json: {errors: video.error}, status: :unprocessable_entity
     end
   end
 

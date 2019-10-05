@@ -9,12 +9,8 @@ const Home = () => {
   useEffect(() => {
 
     axios.get("/api/thirtyIndex")
-      .then(res => {
-        setVideos(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      .then(res => {setVideos(res.data)})
+      .catch(err => {console.log(err)})
 
   }, [])
 
@@ -28,7 +24,7 @@ const Home = () => {
       <div style={{marginTop: "100px"}}>
         <Card.Group itemsPerRow={4}>
           {videos.map(vid =>
-            <Card as={Link} key={vid.id} >
+            <Card as={Link} key={vid.id} to={`/view/${vid.id}`} >
               <iframe src={`${vid.trailer}`} />
               <Card.Content>
                 {vid.title}
