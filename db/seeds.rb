@@ -8,7 +8,7 @@ User.create(email: "test2@test.com", password: "password", password_confirmation
   u = User.create(email: Faker::Internet.email, password: "password", password_confirmation: "password", name: Faker::Name.name, nickname: Faker::Esport.player)
   
   10.times do
-    v = Video.create(title: Faker::DcComics.title, duration:rand(3..15), genre: Faker::Superhero.suffix, descriptions: Faker::Hacker.say_something_smart, trailer: Faker::ChuckNorris.fact, user_id: u.id)
+    v = Video.create(title: Faker::DcComics.title, duration:rand(3..15), genre: Faker::Superhero.suffix, descriptions: Faker::Hacker.say_something_smart, trailer: "https://www.youtube.com/watch?v=3x2ABSAMVno", user_id: u.id)
     
     10.times do 
       c = Comment.create(body: Faker::Hipster.sentence, user_id:rand(1..10), video_id: rand(1..10))
