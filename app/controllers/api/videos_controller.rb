@@ -1,9 +1,17 @@
-class VideosController < ApplicationController
-  before_action: set_video, only: [:show :destroy]
-  before_action: before_action :authenticate_user!
+class Api::VideosController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_video, only: [:show, :destroy]
   
   def index
     render json: Video.all
+  end
+
+  def thirtyIndex
+    render json: Video.all.limit(30)
+  end
+
+  def tenIndex
+    render json: Video.all.limit(10)
   end
 
   def show

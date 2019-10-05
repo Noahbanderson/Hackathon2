@@ -1,6 +1,6 @@
-class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :destroy]
+class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_comment, only: [:show, :destroy]
   
   
   def index
@@ -37,4 +37,5 @@ private
   def video_params
     params.require(:comment).permit(:body,)
   end
+
 end

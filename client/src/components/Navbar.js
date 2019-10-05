@@ -11,8 +11,8 @@ class Navbar extends React.Component {
     if (user) {
       return (
         <Menu.Menu position='right' style={{ marginRight: "50px"}}>
-          <Link >
-            <Image src={require('./Images/Utoob1.png')} size="mini" style={{borderRadius: "50%", marginRight: "50px", marginTop: "9px"}}/>
+          <Link to="/user">
+            <Image src={require('./Images/Utoob1.png')} size="mini" style={{borderRadius: "50%", marginRight: "50px", marginTop: "9px"}} />
           </Link>
           <Menu.Item
             name='logout'
