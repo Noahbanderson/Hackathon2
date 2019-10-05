@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :videos 
 
     get "thirtyIndex", to: "videos#thirtyIndex"
-    get "tenIndex", to: "videos#thirtyIndex"
+    get "tenIndex", to: "videos#tenIndex"
+    
 
   end
 end

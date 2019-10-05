@@ -9,7 +9,7 @@ class Api::VideosController < ApplicationController
   def thirtyIndex
     render json: Video.all.limit(30)
   end
-
+  
   def tenIndex
     render json: Video.all.limit(10)
   end
